@@ -18,9 +18,8 @@ export class PhotoService {
   private PHOTO_STORAGE: string = 'photos';
 
   // Toma y guarda la nueva foto
-  public async addNewToGallery() {
+  public async addNewToGallery(): Promise<UserPhoto> {
 
-   
   // Capturar foto
   const capturedPhoto = await Camera.getPhoto({
     resultType: CameraResultType.Uri,  // Usa URI, mejor rendimiento
@@ -34,15 +33,15 @@ export class PhotoService {
   this.photos.unshift(savedImageFile);
 
 
-
-
-
   await Preferences.set({
   key: this.PHOTO_STORAGE,
   value: JSON.stringify(this.photos),
 });
 
-}
+  //  Retornar la nueva foto
+    return savedImageFile;
+  }
+
   //Carga fotos almacenadas
   public async loadSaved() {  
     const { value } = await Preferences.get({ key: this.PHOTO_STORAGE });
