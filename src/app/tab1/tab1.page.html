@@ -1,17 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Menú
+      Bienvenido
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Menú</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ 
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+ 
+  <div class="nombre-app">
+    <h1>Tech Zone</h1>
+  </div>
 
   
+  <div class="logo-container">
+    <ion-img src="assets/computer.jpg"></ion-img>
+  </div>
+
+
+  
+  <div class="google-news-header">
+      <h1>Google News</h1>
+  </div>
+
+
+  <ion-list>
+    <ion-item *ngFor="let noticia of noticias">
+      <ion-label>
+        <h2>{{ noticia.title }}</h2>
+        <p>{{ noticia.snippet }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
 </ion-content>

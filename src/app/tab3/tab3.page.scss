@@ -2,3 +2,98 @@ ion-toolbar {
   --background: #1e1e2d;  /* Fondo */
   --color: #ffcc00;       /* Texto e íconos */
 }
+
+/* ===== Estilos generales ===== */
+ion-content {
+  --background: #f5f6fa; 
+  padding: 15px;
+}
+
+/* ===== Lista de productos ===== */
+ion-item {
+  --background: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  --inner-padding-end: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+
+/* ===== Contador de productos ===== */
+.counter {
+  display: flex;
+  align-items: center;   /* centra verticalmente */
+  justify-content: center; /* centra horizontalmente */
+  gap: 6px;
+  min-width: 90px; /* espacio fijo para alinear */
+
+  span {
+    font-size: 15px;
+    font-weight:100;
+    color: #222;
+    min-width: 20px;
+    text-align: center;
+  }
+}
+
+/* Botones - y + más pequeños y redondeados */
+.counter ion-button {
+  --border-radius: 50%;
+  --border-color: #6c5ce7;
+  --color: #6c5ce7;
+  --background: #fff;
+  width: 28px;   /* ancho */
+  height: 28px;  /* alto */
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Nota de precio ===== */
+ion-note {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+/* ===== Total ===== */
+ion-item.cart-total {
+  --background: #dfe6e9;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.cart-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* Botón "Realizar pedido" */
+.cart-buttons ion-button:first-child {
+  --border-radius: 6px;
+  --background: #2ecc71;
+  --color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  height: 36px;      /* más compacto */
+  max-width: 220px;  /* ancho controlado */
+  margin: 0 auto;    /* centrado */
+  text-transform: uppercase;
+}
+
+/* Botón "Borrar carrito" */
+.cart-buttons ion-button:last-child {
+  --border-radius: 6px;
+  --color: #c0392b;
+  --border-color: #c0392b;
+  --background: #fff;
+  font-size: 13px;
+  height: 36px;      /* más compacto */
+  max-width: 220px;  /* ancho controlado */
+  margin: 0 auto;    /* centrado */
+  text-transform: uppercase;
+}

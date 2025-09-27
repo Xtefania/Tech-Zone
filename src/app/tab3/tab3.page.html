@@ -1,17 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Carrito
-    </ion-title>
+    <ion-title>Carrito</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Carrito</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+   
+  <ion-grid fixed *ngFor="let item of carrito">
+    <ion-row class="ion-align-items-center ion-padding-vertical">
 
+      <!-- Nombre -->
+      <ion-col size="5">
+        <ion-label>
+          {{ item.nombre }}
+        </ion-label>
+      </ion-col>
 
+      <!-- Controles -->
+      <ion-col size="3" class="ion-text-center">
+        <div class="counter">
+          <ion-button fill="outline" size="small" (click)="disminuir(item)">-</ion-button>
+          <span> {{ item.cantidad }} </span>
+          <ion-button fill="outline" size="small" (click)="aumentar(item)">+</ion-button>
+        </div>
+      </ion-col>
+
+      <!-- Precio -->
+      <ion-col size="4" class="ion-text-right">
+        <ion-note color="dark">
+          {{ item.precio * item.cantidad | currency:'COP' }}
+        </ion-note>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-list>
+
+  <ion-item lines="full" class="cart-total">
+    <ion-label>Total:</ion-label>
+    <ion-note slot="end" color="primary">{{ total() | currency:'COP' }}</ion-note>
+  </ion-item>
+
+  <div class="cart-buttons">
+    <ion-button expand="block" fill="solid" color="success">
+      Realizar pedido
+    </ion-button>
+    <ion-button expand="block" fill="outline" color="danger" (click)="limpiar()">
+      Borrar carrito
+    </ion-button>
+  </div>
 </ion-content>

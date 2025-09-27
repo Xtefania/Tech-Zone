@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PhotoService, UserPhoto } from '../services/photo.service';
 import { Preferences } from '@capacitor/preferences';
+import { CartService } from '../services/cart.service'; //Carrito
 
 @Component({
   selector: 'app-tab2',
@@ -14,7 +15,7 @@ export class Tab2Page {
   // Lista de productos y sus datos
   productos = [  
     {
-      id: 'monitor5',
+      id: 'monitor5', 
       nombre: 'Monitor Gamer Gigabyte 25″',
       precio: 823000,
       imagen: 'assets/monitor5.JPG',
@@ -45,12 +46,13 @@ export class Tab2Page {
 
   categorias: { nombre: string, productos: any[] }[] = [];
 
-  constructor(public photoService: PhotoService) {}
+  constructor(
+    public photoService: PhotoService,
+    private cartService: CartService   //Carrito
+  ) {}
 
   async ngOnInit() {
     await this.photoService.loadSaved();
-
-
     // Recuperar fotos personalizadas de Preferences
     for (let producto of this.productos) {
       const { value } = await Preferences.get({ key: `foto-${producto.id}` });
@@ -68,7 +70,7 @@ export class Tab2Page {
     }));
   }
 
-   async cambiarImagen(index: number, categoria: string) {
+  async cambiarImagen(index: number, categoria: string) {
     const nuevaFoto: UserPhoto | undefined = await this.photoService.addNewToGallery();
 
     if (nuevaFoto?.webviewPath) {
@@ -86,5 +88,9 @@ export class Tab2Page {
         });
       }
     }
+  }
+  agregarAlCarrito(producto: any) {
+    this.cartService.agregarProducto(producto);
+    console.log("Carrito:", this.cartService.getCarrito());
   }
 }

@@ -2,3 +2,42 @@ ion-toolbar {
   --background: #1e1e2d;  /* Fondo */
   --color: #ffcc00;       /* Texto e íconos */
 }
+
+
+.nombre-app {
+  text-align: center;
+  margin-top: 20px;
+
+  h1 {
+    font-size: 38px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: #1e1e2d; 
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  ion-img {
+    max-width: 250px;
+    height: auto;
+  }
+}
+
+.google-news-header{
+
+  text-align: center;
+  margin-top: 20px;
+
+  h1 {
+    font-size: 38px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: #1e1e2d; 
+  }
+}
+

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,7 +8,28 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab3Page {
+  carrito: any[] = [];
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
+  ionViewWillEnter() {
+    this.carrito = this.cartService.getCarrito();
+  }
+
+  aumentar(item: any) {
+    this.cartService.aumentarCantidad(item);
+  }
+
+  disminuir(item: any) {
+    this.cartService.disminuirCantidad(item);
+  }
+
+  total() {
+    return this.cartService.calcularTotal();
+  }
+
+  limpiar() {
+    this.cartService.limpiarCarrito();
+    this.carrito = [];
+  }
 }

@@ -34,36 +34,10 @@
                   <ion-icon name="camera"></ion-icon>
                   Cambiar imagen
                 </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
-    </div>
-  </ion-accordion>
-</ion-accordion-group>
-
-
-<!-- 
-<ion-accordion-group V44444444444> 
-  <ion-accordion *ngFor="let categoria of categorias" [value]="categoria">
-    <ion-item slot="header">
-      <ion-label>{{ categoria | titlecase }}</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">
-      <ion-list>
-        <ion-item *ngFor="let producto of productos; let i = index" [hidden]="producto.categoria !== categoria">
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="4">
-                <img [src]="producto.imagen" />
-              </ion-col>
-              <ion-col size="8">
-                <h2><b>{{ producto.nombre }}</b></h2>
-                <p>Valor: {{ producto.precio | currency:'COP' }}</p>
-                <ion-button (click)="cambiarImagen(i, categoria)" expand="block" fill="outline" shape="round">
-                  <ion-icon name="camera"></ion-icon>
-                  Cambiar imagen
+                <!-- Botón carrito -->
+                <ion-button expand="block" color="primary" shape="round" (click)="agregarAlCarrito(producto)">
+                  <ion-icon slot="start" name="cart"></ion-icon>
+                    Añadir
                 </ion-button>
               </ion-col>
             </ion-row>
@@ -72,83 +46,7 @@
       </ion-list>
     </div>
   </ion-accordion>
-</ion-accordion-group> -->
-
-
-
-
-
-  <!-- Acordeón de Monitores  V333333333333333-->
-  <!-- <ion-accordion-group>
-    <ion-accordion value="monitores">
-      <ion-item slot="header">          
-        <ion-label>Monitores</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-
-
-        <ion-list>
-          <ion-item *ngFor="let producto of productos; let i = index" [hidden]="producto.categoria !== 'monitores'">
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="4">
-                  <img [src]="producto.imagen" />
-                </ion-col>
-                <ion-col size="8">
-                  <h2><b>{{ producto.nombre }}</b></h2>
-                  <p>Valor: {{ producto.precio | currency:'COP' }}</p>
-                  <ion-button (click)="cambiarImagen(i)" expand="block" fill="outline" shape="round">
-                    <ion-icon name="camera"></ion-icon>
-                    Cambiar imagen
-                  </ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-item>
-        </ion-list>
-        
-    </div>
-  </ion-accordion>
-</ion-accordion-group> -->
-            
-              
- <!-- Acordeón de RAM -->
-  <!-- <ion-accordion-group>
-    <ion-accordion value="ram">
-      <ion-item slot="header">          
-        <ion-label>RAM</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-
-
-        <ion-list>
-          <ion-item *ngFor="let producto of productos; let i = index" [hidden]="producto.categoria !== 'ram'">
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="4">
-                  <img [src]="producto.imagen" />
-                </ion-col>
-                <ion-col size="8">
-                  <h2><b>{{ producto.nombre }}</b></h2>
-                  <p>Valor: {{ producto.precio | currency:'COP' }}</p>
-                  <ion-button (click)="cambiarImagen(i)" expand="block" fill="outline" shape="round">
-                    <ion-icon name="camera"></ion-icon>
-                    Cambiar imagen
-                  </ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-item>
-        </ion-list>
-
-
-
-
-    </div>
-  </ion-accordion>
-</ion-accordion-group>      -->
-
-
+</ion-accordion-group>
 </ion-content>
 
 
